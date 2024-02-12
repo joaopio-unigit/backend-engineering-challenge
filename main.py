@@ -1,6 +1,6 @@
 import sys
 from io_operations.io_operations import read_input_file, write_output_file
-from processing_operation.moving_average_operations import calculate_moving_averages
+from process_operations.moving_average_operations import calculate_moving_averages
 
 def main(input_file_path, window_size):    
     events_data = read_input_file(input_file_path)

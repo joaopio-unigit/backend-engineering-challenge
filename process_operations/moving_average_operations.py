@@ -1,4 +1,6 @@
 from datetime import datetime, timedelta
+from collections import deque
+
 from models.window_translation_event import WindowTranslationEvent
 from models.moving_average import MovingAverage
 
@@ -20,11 +22,11 @@ def move_window_events(window_events, window_size):
             expired_window_event = True
 
     if(expired_window_event):
-        window_events.pop(0)
+        window_events.popleft()
 
 def calculate_moving_averages(translation_events, window_size):
     moving_averages = []
-    window_events = []
+    window_events = deque()
 
     first_translation_event_timestamp = get_event_timestamp(translation_events, 0)
     first_moving_average_event_timestamp = first_translation_event_timestamp.replace(second=0, microsecond=0)
