@@ -38,8 +38,8 @@ def calculate_moving_averages(translation_events, window_size):
     current_translation_event_index = 0
 
     while current_moving_average_event_timestamp <= last_moving_average_event_timestamp:
-        current_translation_event_timestamp = get_event_timestamp(translation_events, current_translation_event_index)
         
+        current_translation_event_timestamp = get_event_timestamp(translation_events, current_translation_event_index)
         if(current_translation_event_timestamp < current_moving_average_event_timestamp):
             window_events.append(WindowTranslationEvent(translation_events[current_translation_event_index]['duration']))
             current_translation_event_index +=1
