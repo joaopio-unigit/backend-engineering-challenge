@@ -1,10 +1,11 @@
 import json
 
+from encoders.json_enconders import MovingAverageEncoder
+
 def is_json_file(file_path):
     return file_path.endswith('json')
 
 def read_input_file(file_path):
-
     if is_json_file(file_path):
         try:
             with open(file_path, 'r') as file:
@@ -14,9 +15,11 @@ def read_input_file(file_path):
         
         except FileNotFoundError:
             print("File not found!")
+            return
     else:
         print("Please provide a JSON file.")
+        return
 
 def write_output_file(moving_averages):
-    for average in moving_averages:
-        print('{"date": "' + average.timestamp.strftime('%Y-%m-%d %H:%M:%S') + '", "average_delivery_time": ' + str(average.average) + '}')
+    with open("io_files/moving_averages.json", "w") as json_file:
+        json.dump(moving_averages, json_file, cls=MovingAverageEncoder)

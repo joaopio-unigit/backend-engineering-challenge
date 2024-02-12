@@ -1,11 +1,16 @@
 import sys
-from io_operations import read_input_file, write_output_file
-from processing_operations import calculate_moving_averages
+from io_operations.io_operations import read_input_file, write_output_file
+from processing_operation.moving_average_operations import calculate_moving_averages
 
-def main(input_file_path, window_size):
+def main(input_file_path, window_size):    
     events_data = read_input_file(input_file_path)
-    moving_averages = calculate_moving_averages(events_data, window_size)
-    write_output_file(moving_averages)
+    
+    if(events_data):
+        moving_averages = calculate_moving_averages(events_data, window_size)
+        write_output_file(moving_averages)
+    else:
+        sys.exit(1)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
@@ -15,4 +20,4 @@ if __name__ == "__main__":
     input_file = sys.argv[1]
     window_size = sys.argv[2]
 
-    main("events.json", int(window_size))
+    main(input_file, int(window_size))

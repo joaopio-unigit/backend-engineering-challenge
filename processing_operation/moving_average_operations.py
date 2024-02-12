@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from window_translation_event import WindowTranslationEvent
-from moving_average import MovingAverage
+from models.moving_average import MovingAverage
 
 def get_event_timestamp(translation_events, event_index):
     return datetime.strptime(translation_events[event_index]['timestamp'], '%Y-%m-%d %H:%M:%S.%f')
@@ -8,12 +8,14 @@ def get_event_timestamp(translation_events, event_index):
 def get_window_events_average(window_events):
     if(len(window_events) == 0):
         return 0
-    
-    window_events_total_durantion = 0
-    for event in window_events:
-        window_events_total_durantion += event.duration
-    
-    return window_events_total_durantion/len(window_events)
+     
+    return sum(event.duration for event in window_events)/len(window_events)
+
+def move_window_events(window_events, window_size):
+    for window_event in window_events:
+        window_event.increment_window_time()
+        if(window_event.window_time == window_size):
+            window_events.pop(0)
 
 def calculate_moving_averages(translation_events, window_size):
     moving_averages = []
@@ -34,15 +36,11 @@ def calculate_moving_averages(translation_events, window_size):
         if(current_translation_event_timestamp < current_moving_average_event_timestamp):
             window_events.append(WindowTranslationEvent(translation_events[current_translation_event_index]['duration'])) 
             current_translation_event_index +=1
-
-        
+ 
         current_moving_average = get_window_events_average(window_events)
         moving_averages.append(MovingAverage(current_moving_average_event_timestamp, current_moving_average))
 
-        for window_event in window_events:
-            window_event.increment_window_time()
-            if(window_event.window_time == window_size):
-                window_events.pop(0)
+        move_window_events(window_events, window_size)
 
         current_moving_average_event_timestamp += timedelta(minutes=1)
 
