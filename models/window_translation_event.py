@@ -19,6 +19,7 @@ class WindowTranslationEvent :
         Parameters:
         duration (int): The duration of the WindowTranslationEvent corresponding translation event.
         """
+
         self._duration = duration
         self._window_time = 0
 
@@ -30,6 +31,7 @@ class WindowTranslationEvent :
         Returns:
         int: The duration of the translation event.
         """
+
         return self._duration
     
     @property
@@ -40,6 +42,7 @@ class WindowTranslationEvent :
         Returns:
         int: The time inside a time window of the WindowTranslationEvent instance.
         """
+
         return self._window_time
     
     def increment_window_time(self):
@@ -47,4 +50,5 @@ class WindowTranslationEvent :
         This function is responsible for incrementing by 1 the time a WindowTranslationEvent
         has existed inside a time window.
         """
+        
         self._window_time += 1

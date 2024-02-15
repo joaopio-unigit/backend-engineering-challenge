@@ -12,6 +12,7 @@ def is_json_file(file_path):
     Returns:
     bool: True if file_path points to a JSON file, False otherwise.
     """
+
     return file_path.endswith('json')
 
 def read_input_file(file_path):
@@ -60,5 +61,6 @@ def write_output_file(moving_averages):
     This function has no return but it does produce a JSON file at /io_files with
     the moving averages calculated by the program.
     """
+    
     with open("io_files/moving_averages.json", "w") as json_file:
         json.dump(moving_averages, json_file, cls=MovingAverageEncoder)

@@ -1,8 +1,8 @@
 class MovingAverage:
     """
-    MovingAverage is a class that stores the average of translation events
-    for each corresponding timestamp. With this class it becomes easier to
-    create relations between a given time and its corresponding average.
+    MovingAverage is a class that stores the moving average of translation events
+    for each corresponding timestamp. With this class it becomes easier to create relations
+    between a given timestamp and its corresponding average.
 
     Attributes:
     timestamp (datetime): The atribute that stores the time of the corresponding MovingAverage.
@@ -17,6 +17,7 @@ class MovingAverage:
         timestamp (datetime): The MovingAverage instance timestamp representing its time.
         average (int): The MovingAverage instance average.
         """
+
         self._timestamp = timestamp
         self._average = average
 
@@ -28,6 +29,7 @@ class MovingAverage:
         Returns:
         timestamp: The MovingAverage instance timestamp.
         """
+
         return self._timestamp
     
     @property
@@ -38,4 +40,5 @@ class MovingAverage:
         Returns:
         average: The MovingAverage instance average.
         """
+        
         return self._average
