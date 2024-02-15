@@ -25,6 +25,6 @@ class MovingAverageEncoder(json.JSONEncoder):
         """
         
         if isinstance(movingaverage, MovingAverage):
-            return {'timestamp': movingaverage.timestamp.strftime('%Y-%m-%d %H:%M:%S'), 'average': movingaverage.average}
+            return {'date': movingaverage.timestamp.strftime('%Y-%m-%d %H:%M:%S'), 'average_delivery_time': movingaverage.average}
         
         return json.JSONEncoder.default(self, movingaverage)
