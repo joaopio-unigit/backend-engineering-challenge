@@ -14,7 +14,31 @@ For more detailed information about the challenge scenario, objectives, input/ou
 
 ## Get Started
 
-To get started with running and testing my solution you need to download or clone my repository and have Python installed in your machine.
+To get started with running my solution, you `need to have Python, pip and pipenv installed` in your machine. After installing these you can follow these steps:
+
+### 1. Clone the Repository
+
+Clone the repository to your machine using Git:
+```bash
+git clone https://github.com/joaopio-unigit/backend-engineering-challenge.git
+```
+
+Navigate to the project directory:
+```bash
+cd backend-engineering-challenge
+```
+
+### 2. Install Dependencies
+
+When inside the project directory, run the following command to install the project dependencies:
+```bash
+pipenv install
+```
+
+Then activate the project virtual environment with the following command:
+```bash
+pipenv shell
+```
 
 ## Usage
 
