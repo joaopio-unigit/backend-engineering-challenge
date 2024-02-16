@@ -4,6 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+click = "*"
+unbabel-moving-averages = {file = ".", editable = true}
 
 [dev-packages]
 

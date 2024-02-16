@@ -1,8 +1,13 @@
 import sys
-from io_operations.io_operations import read_input_file, write_output_file
-from process_operations.moving_average_operations import calculate_moving_averages
+import click
 
-def main(input_file_path, window_size):
+from .io_operations.io_operations import read_input_file, write_output_file
+from .process_operations.moving_average_operations import calculate_moving_averages
+
+@click.command()
+@click.option("--input_file", help="Input file path")
+@click.option("--window_size", type=int, help="Moving window size")
+def main(input_file, window_size):
     """
     This is the main function of the program.
     This function is responsible for calling other functions and
@@ -10,7 +15,7 @@ def main(input_file_path, window_size):
     point of execution of the program.
 
     Parameters:
-    input_file_path (string): Path to the JSON file with the translation events data.
+    input_file (string): Path to the JSON file with the translation events data.
     window_size (int): Size of the event window the program has to monitor and produce averages.
 
     Returns:
@@ -20,7 +25,7 @@ def main(input_file_path, window_size):
 
     # Input Processing
     # ================    
-    events_data = read_input_file(input_file_path)
+    events_data = read_input_file(input_file)
     
     if(events_data):
 

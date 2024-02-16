@@ -1,6 +1,6 @@
 import json
 
-from models.moving_average import MovingAverage
+from ..models.moving_average import MovingAverage
 
 class MovingAverageEncoder(json.JSONEncoder):
     """

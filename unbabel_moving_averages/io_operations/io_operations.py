@@ -1,6 +1,6 @@
 import json
 
-from encoders.json_enconders import MovingAverageEncoder
+from ..encoders.json_enconders import MovingAverageEncoder
 
 def is_json_file(file_path):
     """

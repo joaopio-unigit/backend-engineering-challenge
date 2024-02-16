@@ -1,8 +1,8 @@
 from datetime import datetime, timedelta
 from collections import deque
 
-from models.window_translation_event import WindowTranslationEvent
-from models.moving_average import MovingAverage
+from ..models.window_translation_event import WindowTranslationEvent
+from ..models.moving_average import MovingAverage
 
 def get_event_timestamp(translation_events, event_index):
     """
