@@ -42,11 +42,11 @@ pipenv shell
 
 ## Usage
 
-To run this application, you can run the command `python main.py <events_file.json> <window_size>` and replacing `<events_file.json>` with the path to a valid JSON file containing a list of events related to translation data, and `<window_size>` with an integer representing the desired time window size for calculating the moving average.
+To run this application, you can run the command `unbabel_moving_averages --input_file <events_file.json> --window_size <window_size>` and replacing `<events_file.json>` with the path to a valid JSON file containing a list of events related to translation data, and `<window_size>` with an integer representing the desired time window size for calculating the moving average.
 
 ### Example:
 
-	python main.py io_files/events.json 10
+	unbabel_moving_averages --input_file io_files/events.json --window_size 10
 
 The JSON input file should have a list of the translation events data like the ones at the directory `io_files` and the one below:
 
