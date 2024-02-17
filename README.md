@@ -14,7 +14,12 @@ For more detailed information about the challenge scenario, objectives, input/ou
 
 ## Get Started
 
-To get started with running my solution, you `need to have Python, pip and pipenv installed` in your machine. After installing these you can follow these steps:
+To get started with running my solution, you `need to have Python, pip and pipenv installed` in your machine, `pip should automatically come with your Python installation` but pipenv is not automatically installed. You can `install pipenv globally` in your machine by running the following commands:
+```bash
+pip install pipenv
+```
+
+After making sure all of these are installed, you can follow these steps:
 
 ### 1. Clone the Repository
 
